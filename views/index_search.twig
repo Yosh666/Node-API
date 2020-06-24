@@ -3,7 +3,7 @@
 {% block body %}
     <div class="uk-container">
         <h1 class="uk-text-center">Bienvenue</h1>
-        <form action="/" method="post">
+        <form action="/" method="get">
 
             <div class="uk-margin">
                 <span uk-search-icon></span><input class="uk-input uk-form-width-large" type="search" name ='query' placeholder="Chercher un film">
@@ -15,7 +15,7 @@
 
         {% for movie in movies %}
 
-            <a href="/:{{movie.id}}">
+            <a href="/{{movie.id}}">
                 <h3>{{movie.title}}</h3>
             </a>
             <p> {{movie.overview}} </p>

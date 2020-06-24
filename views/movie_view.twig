@@ -1,0 +1,32 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+  <div class="uk-container">
+    <h1 class="uk-text-center">{{movie.title}}</h1>
+    <div class="uk-flex">
+      <div class="uk-width-1-2 uk-card uk-card-default uk-card-body uk-card-small">
+        <p> {{movie.overview}} </p>
+        <p>Date de sortie le : {{movie.release_date|date("d/m/Y")}}</p>
+        <div>
+          <h3>Casting :</h3>
+          
+          <ul class="uk-list uk-list-circle uk-list-striped">
+            {% for people in casting.cast %}
+              
+                
+                <li>
+                  <a href="/actor/{{people.id}}">{{people.name}} </a>dans le role de {{people.character}}
+                </li>
+              
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="uk-width-1-3 uk-card uk-card-default uk-card-body uk-card-small">
+        <img data-src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" width="400 px"  alt="{{movie.title}}" uk-img>
+      </div>
+      
+      
+    </div>
+  </div>
+{% endblock %}
