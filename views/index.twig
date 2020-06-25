@@ -3,27 +3,7 @@
 {% block body %}
     <div class="uk-container">
         <h1 class="uk-text-center">Bienvenue</h1>
-        <form action="/" method="post">
-
-            <div class="uk-margin">
-                <span uk-search-icon></span><input class="uk-input uk-form-width-large" type="search" name ='query' placeholder="Chercher un film">
-            </div>
-            <div class="uk-margin">
-                <input type="Submit" class="uk-button uk-button-primary" value="Rechercher">
-            </div>
-        </form>
-
-        {% for movie in movies %}
-
-            <a href="/:{{movie.id}}">
-                <h3>{{movie.title}}</h3>
-            </a>
-            <p> {{movie.overview}} </p>
-            <hr class="uk-divider-icon">
-        {% else %}
-            <h3>Aucun film n'a été trouvé</h3>
-        {% endfor %}
-
+        <h2> vazy balade toi</h2>
     </div>
 
 

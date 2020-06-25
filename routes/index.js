@@ -2,9 +2,22 @@ var express = require('express');
 var router = express.Router();
 var api = require('./APIHandler')
 
+/*GET home */
+router.get('/',   function(req, res, next) {
 
-/*GET homepage */
-router.get('/',  async function(req, res, next) {
+  
+
+  res.render('index', { 
+    title: 'Accueil'
+   
+    
+   });
+
+});
+
+
+/*GET searchMovie */
+router.get('/search/movie',  async function(req, res, next) {
 
   let query = req.query.query
 
@@ -12,8 +25,8 @@ router.get('/',  async function(req, res, next) {
   let movies = await api.searchMovie(query)
   console.log(movies)
 
-  res.render('index_search', { 
-    title: 'Accueil',
+  res.render('movie_search', { 
+    title: 'Recherche de films',
     movies:movies.results
     
    });

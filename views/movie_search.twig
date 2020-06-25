@@ -1,0 +1,32 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+    <div class="uk-container">
+        <h1 class="uk-text-center">Bienvenue</h1>
+        <form action="/search/movie" method="get">
+
+            <div class="uk-margin">
+                <span uk-search-icon></span><input class="uk-input uk-form-width-large" type="search" name ='query' placeholder="Chercher un film">
+            </div>
+            <div class="uk-margin uk-animation-toggle" tabindex="0"">
+                <input type="Submit" class="uk-button uk-button-primary uk-animation-slide-left" value="Rechercher">
+            </div>
+        </form>
+        {#{% if movie != null %}#}
+            {% for movie in movies %}
+
+                <a href="/{{movie.id}}">
+                    <h3>{{movie.title}}</h3>
+                </a>
+                <p> {{movie.overview}} </p>
+                <hr class="uk-divider-icon">
+            {% else %}
+                <h3>Aucun film n'a été trouvé</h3>
+            {% endfor %}
+        {#{% else %}
+            <h3>Faites une recherche!</h3>
+        {% endif %}#}
+    </div>
+
+
+{% endblock %}

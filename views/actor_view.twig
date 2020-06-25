@@ -19,7 +19,12 @@
             {% for movie in filmo.cast %}
                 <div>
                     <a href="/{{movie.id}}">
-                    <img data-src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" width="150 px"  alt="{{movie.title}}" uk-img>
+                      {% if movie.poster_path != null  %}
+                        <img data-src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" width="150 px"  alt="{{movie.title}}" uk-img>
+                      {% else %}
+                        <p>{{movie.title}}</p>
+                      {% endif %}
+                    
                     </a>
                     <p class="uk-text-center">{{movie.character}}</p>
                 </div>                
