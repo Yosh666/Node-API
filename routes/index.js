@@ -20,14 +20,35 @@ router.get('/',   function(req, res, next) {
 router.get('/search/movie',  async function(req, res, next) {
 
   let query = req.query.query
-
+  if(!query){
+      query = 'Kill'
+    }
   
   let movies = await api.searchMovie(query)
-  console.log(movies)
+  
 
   res.render('movie_search', { 
     title: 'Recherche de films',
     movies:movies.results
+    
+   });
+
+});
+/*GET searchActor */
+router.get('/search/actor',  async function(req, res, next) {
+
+  let query = req.query.query
+  if(!query){
+    query = 'jolie'
+  }
+
+  
+  let actors = await api.searchActor(query)
+  
+
+  res.render('actor_search', { 
+    title: 'Recherche d\'acteur',
+    actors:actors.results
     
    });
 

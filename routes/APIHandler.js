@@ -42,6 +42,16 @@ class ApiHandler{
         
 
     }
+    searchActor(query){
+        return fetch('https://api.themoviedb.org/3/search/person?api_key='+key+'&language='+lang+'&query='+query+'&page=1&include_adult=false')
+            .then(function(response) {
+                return response.json()
+            }).then(function(json) {
+                return json
+            }).catch(function(ex) {
+            return "error"
+            });  
+    }
      async getActor(id){
         let actor =await fetch('https://api.themoviedb.org/3/person/'+id+'?api_key='+key+'&language='+lang)
             .then(function(response) {
